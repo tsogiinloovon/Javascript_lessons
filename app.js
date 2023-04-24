@@ -25,8 +25,8 @@ var person = {
   name: "Tsogiinlovon Tsogtbaatar",
   job: "Software engineer",
   age: "25",
-  is_married: true,
-  wife_name: "Khasherdene Baasandorj",
+//   is_married: true,
+//   wife_name: "Khasherdene Baasandorj",
   getName: function () {
     return this.name;
   },
