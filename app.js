@@ -56,3 +56,118 @@ p2.price = "400$"; // both object's price changed
 
 console.log("p1::: ", p1); //  { name: 'notebook', price: '400$' }
 console.log("p2::: ", p2); // { name: 'notebook', price: '400$' }
+
+
+
+
+
+// // closure hell
+// function getRecipe(){
+//     setTimeout(()=>{
+//         const ids = [12,123,143,423];
+//         console.log(ids)
+//         setTimeout(id=>{
+//             const author = {
+//                 name:"tsogoo",
+//                 id:id,
+//             }
+//             console.log(author)
+//             setTimeout(author=>{
+//                 const recipe = {
+//                     name:"tsuivan",
+//                     author:author
+//                 }
+//                 console.log(recipe)
+//             },5000,author)
+
+//         },3000,12)
+//     },1500)
+// }
+
+// console.log('program started')
+// getRecipe();
+
+// Promise
+
+// let p = new Promise((resolve, reject) => {
+//   console.log("promise ajilj bn ....");
+//   resolve(" h duusla");
+//   reject(" h chadsangui");
+// });
+
+// p.then((result) => {
+//   console.log("amjilttai", result);
+// }).catch((err) => {
+//   console.log("amjiltgui", err);
+// });
+
+// new Promise((resolve, reject) => {
+//   console.log("promise ajilj bn ....");
+//   resolve(" amjilttai h duusla");
+//   reject("  h chadsangui");
+// })
+//   .then((result) => {
+//     console.log("amjilttai", result);
+//   })
+//   .catch((err) => {
+//     console.log("amjiltgui", err);
+//   });
+
+// let imageRecoginition = (imagePath) => {
+//   return new Promise((resolve, reject) => {
+//     console.log("promise running ...");
+//     resolve("success");
+//     reject("failed");
+//   });
+// };
+
+// imageRecoginition("c:/cat.png")
+//   .then((result) => console.log("amjilttai", result))
+//   .catch((error) => console.log("error", error));
+
+
+
+//promise ES6
+const getRecipes = () =>{
+  return new Promise((resolve,reject)=>{
+    ids = [1,2,3,4,5]
+    setTimeout(ids=>{
+      resolve(ids)
+    },1500,ids)
+  })
+}
+
+const getAuthor=id=>{
+  return new Promise((resolve,reject)=>{
+    setTimeout(_id=>{
+      resolve({id:_id,name:"tsuivan",author:"tsogiinloovon"})
+    },3000,id)
+  })
+}
+
+
+// // promise chain
+// getRecipes()
+// .then(result=>{
+//   console.log('ids',ids)
+//   return getAuthor(ids[0])
+// })
+// .then(result=>{
+//     console.log('author:',result)
+//   })
+// .catch(error=>{
+//   console.log(erro)
+// })
+
+
+
+
+//async await 2017 ES8
+async function getInformaiton(){
+  const ids = await getRecipes();
+  console.log(ids)
+  const author = await getAuthor(ids[0])
+  console.log(author)
+}
+
+getInformaiton()
